@@ -1,0 +1,56 @@
+/* 1 */
+SELECT p. *, t. endereco, t. telefone
+FROM paciente p
+LEFT JOIN tutor t ON t. id_tutor = p. id_tutor
+
+/* 2 */
+SELECT p. *, t. *
+FROM paciente p
+INNER JOIN tutor t ON t. id_tutor = p. id_tutor
+
+/* 3 */
+SELECT t. *, p. nome, p. ESPECIE, p. RACA 
+FROM tutor t
+LEFT JOIN paciente p ON p. id_tutor = t. id_tutor
+
+/* 4 */
+SELECT t. *, p. *
+FROM tutor t
+INNER JOIN paciente p ON p. id_tutor = t. id_tutor
+
+/* 5 */
+SELECT m. *, r. data_emissao, i. dosagem
+FROM itensreceita i
+LEFT JOIN receita r ON r. id_receita = i. ID_RECEITA 
+LEFT JOIN medicamentos m ON m. ID_MEDICAMENTO = i. ID_MEDICAMENTO 
+
+/* 6 */
+SELECT m. *, i. dosagem
+FROM itensreceita i
+inner JOIN medicamentos m ON m. ID_MEDICAMENTO = i. ID_MEDICAMENTO 
+
+/* 7 */
+SELECT r. *, p. nome, p. ESPECIE 
+FROM itensreceita i
+LEFT JOIN receita r ON r. id_receita = i. ID_RECEITA 
+LEFT JOIN PACIENTE p ON p. ID_PACIENTE = i. ID_MEDICAMENTO 
+
+/* 8 */
+SELECT r. *, p. *
+FROM itensreceita i
+INNER JOIN receita r ON r. id_receita = i. ID_RECEITA 
+INNER JOIN PACIENTE p ON p. ID_PACIENTE = i. ID_MEDICAMENTO 
+
+/* 9 */
+SELECT r. *, m. nome, i. dosagem
+FROM receita r
+left JOIN itensreceita i ON i. ID_RECEITA = r. id_receita
+LEFT JOIN medicamentos m ON m. id_medicamento = r. id_receita
+
+/* 10 */
+SELECT r. *, m.*
+FROM receita r
+inner JOIN itensreceita i ON i. ID_RECEITA = r. id_receita
+inner JOIN medicamentos m ON m. id_medicamento = r. id_receita
+
+
